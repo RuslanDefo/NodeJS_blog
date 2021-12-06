@@ -3,7 +3,12 @@ const path = require('path');
 const fs = require('fs')
 const bodyParser = require('body-parser');
 const saveUser = require('./reg_controller');
-// const authRoute = require('./routes/register.js');
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
+
+     // const authRoute = require('./routes/register.js');
+
+
 
 
 const usersBase = path.join(__dirname, 'Api/users.json');
@@ -17,8 +22,8 @@ const front = path.join(__dirname, 'views');
 
 app.use(express.static(front));
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use("/", authRoute);
-
+app.use(cookieParser());
+app.use(session({ secret: "ololo", saveUninitialized: true, resave: true }));
 
 
 app.post("/reg-user", jsonParser, function (request, response) {
@@ -62,6 +67,41 @@ app.post("/reg-user", jsonParser, function (request, response) {
    //  });
    //  response.sendFile(__dirname + "/views/index.html");
 });
+
+app.post('/sign-in',  (req, res) => {
+
+    let data = fs.readFileSync(usersBase,"utf8");
+     data = JSON.parse(data);
+
+    const user = data.find(user => user.name === req.body.userLogin)
+    if (user == null) {
+        return res.status(400).send('Cannot find user')
+    }
+    try {
+        if( (req.body.userPass === user.pass)) {
+
+            req.session.user = usersBase;
+            req.session.save();
+            res.send('Success')
+            // console.log(req.session.user);
+        } else {
+            res.send('Not Allowed')
+        }
+    } catch {
+        res.status(500).send()
+    }
+})
+
+app.get("/user", (req, res) => {
+    const sessionUser = req.session.user;
+    return res.send(sessionUser);
+});
+
+app.get("/logout", (req, res) => {
+    req.session.destroy();
+    return res.send("User logged out!");
+});
+
 
 app.get("/", function(request, response){
     response.sendFile(__dirname + "/index.html");
