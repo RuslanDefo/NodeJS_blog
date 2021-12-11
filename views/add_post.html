@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new Post</title>
+</head>
+<body>
+
+<form action="/addPost" name="postForm" method="post" enctype="multipart/form-data">
+    <label>Post title</label></br>
+    <input type="text" name="title" required/></br></br>
+    <label>Tags</label></br>
+    <input type="text" name="tags" required/></br></br>
+    <label>Post text</label></br>
+    <textarea type="text" name="postText" required> </textarea></br></br>
+    <label>Post Image</label></br>
+    <input type="file" name="avatar"/></br></br>
+    <button type="submit" id="submit">Отправить</button>
+</form>
+
+
+</body>
+</html>

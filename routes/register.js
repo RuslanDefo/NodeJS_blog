@@ -17,7 +17,7 @@ const usersBase = path.join(__dirname, 'Api/users.json');
 //         if(error) throw error; // если возникла ошибка
 //         console.log(error);
 //     });
-//     response.sendFile(__dirname + "/views/index.html");
+//     response.sendFile(__dirname + "/views/indexTEST.html");
 // });
 
 
@@ -35,7 +35,7 @@ module.exports = router;
 // //         if(error) throw error; // если возникла ошибка
 // //         console.log(error);
 // //     });
-// //     response.sendFile(__dirname + "/views/index.html");
+// //     response.sendFile(__dirname + "/views/indexTEST.html");
 // // });
 
 
@@ -69,5 +69,5 @@ module.exports = router;
 //         if(error) throw error; // если возникла ошибка
 //         console.log(error);
 //     });
-//     response.sendFile(__dirname + "/views/index.html");
+//     response.sendFile(__dirname + "/views/indexTEST.html");
 // });
