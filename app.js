@@ -59,7 +59,16 @@ app.set("view engine", "hbs");
 hbs.registerPartials(__dirname + '/views/partials')
 // app.engine('html', require('hbs').__express);
 
+hbs.registerHelper("ifLogged", function(user){
 
+    if (sessionUser.name !== undefined) {
+        return new hbs.SafeString(sessionUser.name)
+    } else {
+        return new hbs.SafeString('<button type="button" class="btn btn-outline-light me-2">'+'<a href="/sign-in">Login</a>'+'</button>')
+
+    }
+
+});
 
 
 app.post("/reg-user", jsonParser, function (request, response) {
@@ -127,8 +136,11 @@ app.get("/logout", (req, res) => {
 
 
 app.get("/", function(request, response){
-    response.render('home.hbs');
-    console.log(app)
+    response.render('home', {
+        user: sessionUser
+    });
+    console.log(sessionUser)
+    console.log(sessionUser.name)
 });
 
 app.get("/addPost", function(request, response){
@@ -181,11 +193,16 @@ app.get("/allPosts", function(request, response){
 });
 
 app.get("/reg-user", function (req, res) {
-    res.render('reg-user.hbs');
+    res.render('reg-user');
+})
+
+app.get("/sign-in", function (req, res) {
+    res.render('sign-in');
 })
 
 
 app.listen(port, ()=> {
     console.log('Server started')
     console.log(sessionUser)
+
 });
