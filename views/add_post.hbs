@@ -1,0 +1,36 @@
+{{> header}}
+
+<body>
+
+<!--<form action="/addPost" name="postForm" method="post" enctype="multipart/form-data">-->
+<!--    <label>Post title</label></br>-->
+<!--    <input type="text" name="title" required/></br></br>-->
+<!--    <label>Tags</label></br>-->
+<!--    <input type="text" name="tags" required/></br></br>-->
+<!--    <label>Post text</label></br>-->
+<!--    <textarea type="text" name="postText" required> </textarea></br></br>-->
+<!--    <label>Post Image</label></br>-->
+<!--    <input type="file" name="avatar"/></br></br>-->
+<!--    <button type="submit" id="submit">Отправить</button>-->
+<!--</form>-->
+
+<form action="/addPost" name="postForm" method="post" enctype="multipart/form-data">
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label" >Post title</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="enter post title" name="title" required>
+</div>
+<div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Your text</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="postText" minlength="50" placeholder="minimum 50 symbols" required></textarea>
+</div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label" >Enter tags post using ","</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="enter post title" name="tags" required>
+    </div>
+    <div class="mb-3">
+        <label>Post Image</label></br>
+        <input type="file" name="avatar"/></br></br>
+    </div>
+    <button type="submit" class="btn btn-primary">Write post</button>
+</form>
+{{> footer}}

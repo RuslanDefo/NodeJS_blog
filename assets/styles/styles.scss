@@ -1,0 +1,44 @@
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.text-secondary {
+  --bs-text-opacity: none;
+}
+
+form {
+  max-width: 550px;
+  margin: 100px auto;
+}
+
+.form-floating {
+  position: relative;
+  margin: 20px;
+}
+
+.fw-normal {
+  text-align: center;
+}
+
+.card {
+ img
+   {
+    background-size: contain;
+    max-height: 350px;
+  }
+}
+.btn.btn-primary {
+  text-align: center;
+  display: flex;
+  margin: 0 auto;
+  min-width: 300px;
+  justify-content: center;
+}
+
+.btn.btn-secondary {
+  display: flex;
+  margin: 20px auto;
+}

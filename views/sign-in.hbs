@@ -1,15 +1,24 @@
 {{> header}}
 <body>
-<h1>Login</h1>
+
 <form action="/sign-in" name="registerForm" method="post">
-    <label>Login</label></br>
-    <input type="text" name="userLogin" required/></br></br>
 
-    <label>Password</label></br>
-    <input type="text" name="userPass" required/></br></br>
-    <button type="submit" id="submit">Войти</button>
+    <h1 class="h3 mb-3 fw-normal">Login in matrix</h1>
+
+
+    <div class="form-floating">
+        <input type="text" class="form-control" name="userLogin" placeholder="Your Login" required/>
+        <label for="floatingInput">Login</label>
+    </div>
+    <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="userPass"
+               required>
+        <label for="floatingPassword">Password</label>
+    </div>
+
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+    <p class="mt-5 mb-3 text-muted">© 2017–2021</p>
 </form>
-
 
 </body>
 

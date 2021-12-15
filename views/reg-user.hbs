@@ -6,7 +6,7 @@
 <main class="form-signin" >
     <form action="/reg-user" name="registerForm" method="post">
 
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <h1 class="h3 mb-3 fw-normal">Registration form</h1>
 
 
         <div class="form-floating">
@@ -18,7 +18,7 @@
             <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="userPass" required>
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="userPass" minlength="6" required>
             <label for="floatingPassword">Password</label>
         </div>
 
