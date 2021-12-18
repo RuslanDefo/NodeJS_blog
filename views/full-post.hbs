@@ -1,13 +1,24 @@
 {{> header}}
 
 <body>
+<div class="container post">
 <h1>{{postTitle}}</h1>
-<img src="/images/{{postImage}}" alt="">
+    {{#if postImage}}
+        <img src="/images/{{postImage}}" alt="">
+    {{else}}
+        <img src="https://via.placeholder.com/200x200/258DC8/E0F6FD" alt="">
+    {{/if}}
+    <div class="postText">
 <h3>{{postText}}</h3>
+    </div>
+<div class="tagsBlock">
+    Tags:
 {{#each postTags}}
-<a href="/?id={{this}}">{{this}}</a>
-{{/each}}
+  <a href="/?id={{this}}">{{this}}</a>
 
+{{/each}}
+</div>
+</div>
 
 </body>
 {{> footer}}

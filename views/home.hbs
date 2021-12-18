@@ -1,4 +1,3 @@
-
 {{> header}}
 
 <body>
@@ -9,86 +8,73 @@
 
 <div class="album py-5 bg-light">
     <div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-{{#allPosts}}
+            {{#allPosts}}
 
 
 
-            <div class="col">
-                <div class="card shadow-sm">
-                    {{#if image}}
-                        <img src="/images/{{image}}" alt="">
-                    {{else}}
-                        <img src="https://via.placeholder.com/200x200/258DC8/E0F6FD" alt="">
-                    {{/if}}
+                <div class="col">
+                    <div class="card shadow-sm">
+                        {{#if image}}
+                            <img src="/images/{{image}}" alt="">
+                        {{else}}
+                            <img src="https://via.placeholder.com/200x200/258DC8/E0F6FD" alt="">
+                        {{/if}}
 
-                    <div class="card-body">
-                     <h2> {{title}}</h2>
-                   <p class="card-text">   {{text}}    </p>
+                        <div class="card-body">
+                            <h2> {{title}}</h2>
+                            <p class="card-text">   {{text}}    </p>
 
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary"><a href="/readPost?id={{id}}"> Read more </a></button>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary"><a
+                                            href="/readPost?id={{id}}"> Read more </a></button>
+                                </div>
+                             <h5>  TAGS:  <small class="text-muted"> {{tags}}</small> </h5>
                             </div>
-                         <small class="text-muted">{{tags}}</small>
                         </div>
                     </div>
                 </div>
-            </div>
 
 
-{{/allPosts}}
+            {{/allPosts}}
 
 
-{{#tagsPosts}}
+            {{#tagsPosts}}
 
-      <div class="col">
-          <div class="card shadow-sm">
-              {{#if image}}
-                  <img src="/images/{{image}}" alt="">
-              {{else}}
-                  <img src="https://via.placeholder.com/200x200/258DC8/E0F6FD" alt="">
-              {{/if}}
+                <div class="col">
+                    <div class="card shadow-sm">
+                        {{#if image}}
+                            <img src="/images/{{image}}" alt="">
+                        {{else}}
+                            <img src="https://via.placeholder.com/200x200/258DC8/E0F6FD" alt="">
+                        {{/if}}
 
-              <div class="card-body">
-                  <h2> {{title}}</h2>
-                  <p class="card-text">   {{text}}    </p>
+                        <div class="card-body">
+                            <h2> {{title}}</h2>
+                            <p class="card-text">   {{text}}    </p>
 
-                  <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary"><a href="/readPost?id={{id}}"> Read more </a></button>
-                      </div>
-                      <small class="text-muted">{{tags}}</small>
-                  </div>
-              </div>
-          </div>
-      </div>
-  {{/tagsPosts}}
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary"><a
+                                            href="/readPost?id={{id}}"> Read more </a></button>
+                                </div>
+                                <h5>  TAGS:       <small class="text-muted">{{tags}}</small> </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/tagsPosts}}
 
-  </div>
+        </div>
 
-        {{#pagination 16 25 5}}
-            <div class="pagination">
-                {{#unless startFromFirstPage}}
-                    <a href="#">&lt;</a>
-                {{/unless}}
+        <div class="paginatedContainer">
+            {{#pageCount}}
 
-                {{#each pages}}
-                    {{#if isCurrent}}
-                        [<a href="?page={{page}}">{{page}}</a>]
-                    {{/if}}
-                    {{#unless isCurrent}}
-                        <a href="?page={{page}}">{{page}}</a>
-                    {{/unless}}
-                {{/each}}
 
-                {{#unless endAtLastPage}}
-                    <a href="#">&gt;</a>
-                {{/unless}}
-            </div>
-        {{/pagination}}
-
+                <a href="/?page={{this}}" id="navLink"> {{this}}</a>{{/pageCount}}
+        </div>
 
     </div>
 </div>

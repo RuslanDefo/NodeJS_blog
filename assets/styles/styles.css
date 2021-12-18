@@ -3,6 +3,10 @@ a {
   color: inherit;
 }
 
+body {
+  word-wrap: break-word;
+}
+
 .text-secondary {
   --bs-text-opacity: none;
 }
@@ -37,6 +41,68 @@ form {
 .btn.btn-secondary {
   display: flex;
   margin: 20px auto;
+
 }
 
+p {
+-ms-text-overflow: ellipsis;
+text-overflow: ellipsis;
+overflow: hidden;
+-ms-line-clamp: 3;
+-webkit-line-clamp: 3;
+display: -webkit-box;
+word-wrap: break-word;
+-webkit-box-orient: vertical;
+padding-bottom: 5px;
+}
+
+.paginatedContainer {
+  display: flex;
+  max-width: 500px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 50px auto;
+}
+
+.card-body {
+  min-height: 202px;
+}
+
+.container.post {
+  margin: 50px auto;
+  background: aliceblue;
+}
+
+.container.post h1 {
+  font-size: 28px;
+  line-height: 32px;
+  text-transform: uppercase;
+}
+
+.container.post img {
+  max-height: 500px;
+  margin: 20px auto;
+}
+
+.tagsBlock {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  justify-content: end;
+  font-size: 18px;
+}
+
+.tagsBlock a {
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 10px;
+  color: darkorange;
+}
+
+.paginatedContainer a {
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 7px;
+  margin: 0 3px;
+}
 /*# sourceMappingURL=styles.css.map */
